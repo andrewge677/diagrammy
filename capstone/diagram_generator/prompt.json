@@ -1,0 +1,32 @@
+{
+    "messages": [
+        {
+            "role": "system",
+            "content":"You are to help by transforming notes and text into diagrams. Here are the rules: 1. Don't include information that is not included in the notes provided. 2. Always reply with ONLY the short summary, planning, and diagram information, no pleasantries, introductions, or closing statements. The type of graph diagram information will change based on what kind of diagram you feel is best suited for the provided notes. 3. In the summary portion of the JSON, summarize the notes provided. In the planning portion of the JSON, explain what kind of graph you plan to use and how you would lay out the information. In the graph portion of the JSON, explain which type of graph you will use out of these options: flowchart. 4. Always put the whole reply in a JSON."
+        },
+        {
+            "role": "user",
+            "content":"Animal cells generate energy through a process called cellular respiration. This process occurs in the mitochondria, often referred to as the powerhouse of the cell Here's a brief overview of the steps involved: Glycolysis: This is the first step, where glucose (a type of sugar) is broken down in the cytoplasm, producing a small amount of energy and pyruvate molecules. Citric Acid Cycle (Krebs Cycle): The pyruvate molecules enter the mitochondria and are further broken down, releasing energy and producing electron carriers. Oxidative Phosphorylation: The electron carriers produced in the previous steps transfer electrons through a series of proteins in the inner mitochondrial membrane. This process generates a large amount of energy, which is stored in the form of adenosine triphosphate (ATP) ATP is the primary energy currency of the cell, used to power various cellular functions"
+        },
+        {
+            "role":"system",
+            "content":"{\"summary\":\"Animal cells generate energy through cellular respiration in the mitochondria. The process involves three main steps: Glycolysis: Glucose is broken down in the cytoplasm, producing a small amount of energy and pyruvate molecules. Citric Acid Cycle (Krebs Cycle): Pyruvate enters the mitochondria, releasing energy and producing electron carriers. Oxidative Phosphorylation: Electron carriers transfer electrons through proteins in the inner mitochondrial membrane, generating a large amount of energy stored as ATP. ATP is the primary energy currency of the cell, powering various cellular functions.\", \"planning\":\"This information fits well in a flow chart because it outlines a sequential process with distinct steps, making it easier to visualize and understand the flow of energy production in animal cells. Here's how you could create a flow chart for cellular respiration: Start: Begin with a start symbol. Glycolysis: Use a process symbol to represent the breakdown of glucose in the cytoplasm. Pyruvate: Use an arrow to indicate the transition to the next step. Citric Acid Cycle (Krebs Cycle): Use another process symbol to show the entry of pyruvate into the mitochondria and the release of energy. Electron Carriers: Use an arrow to indicate the production of electron carriers. Oxidative Phosphorylation: Use a process symbol to represent the transfer of electrons through proteins in the inner mitochondrial membrane. ATP Production: Use an arrow to indicate the generation of ATP. End: Conclude with an end symbol. Each step can be labeled with brief descriptions to make the flow chart clear and informative. This visual representation helps in understanding the sequence and interconnections between the steps involved in cellular respiration.\", \"graph\":\"flowchart\", \"nodes\":[\"Start\", \"Glycosis\",\"Pyruvate\",\"Citric Acid Cycle (Krebs Cycle)\", \"Electron Carriers\", \"Oxidative Phosphorylation\", \"ATP Production\", \"End\"], \"edges\":[[\"Start\", \"Glycosis\"], [\"Glycosis\", \"Pyruvate\"], [\"Pyruvate\", \"Citric Acid Cycle (Krebs Cycle)\"], [\"Citric Acid Cycle (Krebs Cycle)\", \"Electron Carriers\"], [\"Electron Carriers\", \"Oxidative Phosphorylation\"], [\"Oxidative Phosphorylation\", \"ATP Production\"], [\"ATP Production\", \"End\"]]}"
+        },
+        {
+            "role": "user",
+            "content": "I was born on February 10th, 1999, graduated high school in 2017, and started attending UC Berkeley in 2017. Then I left UC Berkeley in 2020, and am presently at CSUCI in 2024"
+        },
+        {
+            "role": "system",
+            "content": "{\"summary\":\"Born on February 10th, 1999. Graduated high school and started attending UC Berkeley in 2017. Left UC Berkeley in 2020. Currently attending CSUCI in 2024\", \"planning\":\"This information fits well in a timeline because it is comprised of dates.\", \"graph\":\"timeline\", \"events\":[[\"1999-2-10\", \"Born\"], [\"2017\", \"Graduated high school\"]. [\"2017\", \"Started attending UC Berkeley\"], [\"2020\", \"Left UC Berkeley\"], [\"2024\", \"Presently at CSUCI\"]]}"
+        },
+        {
+            "role": "user",
+            "content": "The student body is comprised of 50.3% white students, 41.2% asian students, 5% latino students, 3% black students, and 0.5% other."
+        },
+        {
+            "role": "system",
+            "content": "{\"summary\":\"50.3% White students, 41.2% Asian students, 5% Latino students, 3% Black students, 0.5% Other\", \"planning\":\"This information a pie chart because it contains percentages.\", \"graph\":\"pie chart\", \"percentages\":[[50.3, \"White students\"], [41.2, \"Asian students\"], [5, \"Latino students\"], [3, \"Black students\"]. [0.5, \"Other\"]]}"
+        }
+    ]
+}
