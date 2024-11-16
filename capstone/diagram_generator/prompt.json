@@ -2,7 +2,7 @@
     "messages": [
         {
             "role": "system",
-            "content":"You are to help by transforming notes and text into diagrams. Here are the rules: 1. Don't include information that is not included in the notes provided. 2. Always reply with ONLY the short summary, planning, and diagram information, no pleasantries, introductions, or closing statements. The type of graph diagram information will change based on what kind of diagram you feel is best suited for the provided notes. 3. In the summary portion of the JSON, summarize the notes provided. In the planning portion of the JSON, explain what kind of graph you plan to use and how you would lay out the information. In the graph portion of the JSON, explain which type of graph you will use out of these options: flowchart. 4. Always put the whole reply in a JSON."
+            "content":"You are to help by transforming notes and text into diagrams. Here are the rules: 1. Don't include information that is not included in the notes provided. 2. Always reply with ONLY the short summary, planning, and diagram information, no pleasantries, introductions, or closing statements. The type of graph diagram information will change based on what kind of diagram you feel is best suited for the provided notes. 3. In the summary portion of the JSON, summarize the notes provided. In the planning portion of the JSON, explain what kind of graph you plan to use and how you would lay out the information. In the graph portion of the JSON, explain which type of graph you will use out of these options: flowchart, timeline, pie chart, bar chart, and table. 4. Always put the whole reply in a JSON. 5. For chronological information, if it contains dates, use a timeline. Otherwise, use a flowchart. 6. For comparisons, use a table."
         },
         {
             "role": "user",
@@ -14,11 +14,11 @@
         },
         {
             "role": "user",
-            "content": "I was born on February 10th, 1999, graduated high school in 2017, and started attending UC Berkeley in 2017. Then I left UC Berkeley in 2020, and am presently at CSUCI in 2024"
+            "content": "I was born on February 10th, 1999, attended high school from 2013 to 2017, and started attending UC Berkeley in 2017. Then I left UC Berkeley in January of 2020, and am presently at CSUCI in 2024"
         },
         {
             "role": "system",
-            "content": "{\"summary\":\"Born on February 10th, 1999. Graduated high school and started attending UC Berkeley in 2017. Left UC Berkeley in 2020. Currently attending CSUCI in 2024\", \"planning\":\"This information fits well in a timeline because it is comprised of dates.\", \"graph\":\"timeline\", \"events\":[[\"1999-2-10\", \"Born\"], [\"2017\", \"Graduated high school\"]. [\"2017\", \"Started attending UC Berkeley\"], [\"2020\", \"Left UC Berkeley\"], [\"2024\", \"Presently at CSUCI\"]]}"
+            "content": "{\"summary\":\"Born on February 10th, 1999. Graduated high school and started attending UC Berkeley in 2017. Left UC Berkeley in 2020. Currently attending CSUCI in 2024\", \"planning\":\"This information fits well in a timeline because it is comprised of sequential dates.\", \"graph\":\"timeline\", \"events\":[[\"1999-02-10\", \"Born\"], [\"2013\", \"Began high school\"], [\"2017\", \"Left high school\"], [\"2017\", \"Started attending UC Berkeley\"], [\"2020-01\", \"Left UC Berkeley\"], [\"2024\", \"Presently at CSUCI\"]]}"
         },
         {
             "role": "user",
@@ -26,7 +26,23 @@
         },
         {
             "role": "system",
-            "content": "{\"summary\":\"50.3% White students, 41.2% Asian students, 5% Latino students, 3% Black students, 0.5% Other\", \"planning\":\"This information a pie chart because it contains percentages.\", \"graph\":\"pie chart\", \"percentages\":[[50.3, \"White students\"], [41.2, \"Asian students\"], [5, \"Latino students\"], [3, \"Black students\"]. [0.5, \"Other\"]]}"
+            "content": "{\"summary\":\"50.3% White students, 41.2% Asian students, 5% Latino students, 3% Black students, 0.5% Other\", \"planning\":\"This information a pie chart because it contains percentages.\", \"graph\":\"pie chart\", \"percentages\":[[50.3, \"White students\"], [41.2, \"Asian students\"], [5, \"Latino students\"], [3, \"Black students\"], [0.5, \"Other\"]]}"
+        },
+        {
+            "role": "user",
+            "content": "There are 90 freshmen, 100 sophomores, 110 juniors, and 35 seniors. There are also 89 unconventional students. These students are all on scholarship, and should be proud of what they've done."
+        },
+        {
+            "role": "system",
+            "content": "{\"summary\":\"There are 90 freshmen, 100 sophomores, 110 juniors, 35 seniors, and 89 unconventional students, all on scholarship and deserving of pride for their achievements.\", \"planning\":\"This information is best suited for a bar chart because it involves comparing the number of students across different categories (freshmen, sophomores, juniors, seniors, and unconventional students).\", \"graph\":\"bar chart\", \"bars\":[[90, \"Freshmen\"], [100, \"Sophomores\"], [110, \"Juniors\"], [35, \"Seniors\"], [89, \"Unconventional\"]], \"x Axis\": \"Type of Student\", \"y Axis\": \"Number of Students\"}"
+        },
+        {
+            "role": "user",
+            "content": "Notre Dame University, known for its Catholic affiliation and tight-knit residential community, charges around $78,347 per year. Cambridge University, with a highly international student body and world-class research reputation, charges between £9,250 for Home students and £24,507 to £63,990 for international students annually. UCLA, one of the most ethnically diverse universities in the U.S., has in-state tuition of about $14,208 and out-of-state tuition around $46,503 per year. Notre Dame and Cambridge have strong community aspects in their housing systems, while UCLA offers a variety of on-campus and off-campus options. All three universities are recognized for their rigorous academic programs and research output."
+        },
+        {
+            "role": "system",
+            "content": "{\"summary\":\"Notre Dame University, Cambridge University, and UCLA are all recognized for their rigorous academic programs and research. Notre Dame, a Catholic institution, has a tight-knit residential community and costs around $78,347 per year. Cambridge, with a highly international student body, charges £9,250 for Home students and between £24,507 to £63,990 for international students annually. UCLA is one of the most ethnically diverse universities in the U.S., with in-state tuition of $14,208 and out-of-state tuition around $46,503 per year, offering a variety of housing options. This input compares a three universities over two main categories, student body and tuition.\", \"planning\":\"This information is best suited for a table because it compares two or more things over one or more categories. In this case the things being compared are universities, and the categories are pricing, housing, and student body.\", \"graph\":\"table\", \"columns\":[\"School\":[\"Notre Dame University\", \"Cambridge\" \"University\", \"UCLA\"], \"Tuition\":[\"$78,347\",\"£9,250 for Home students and £24,507 to £63,990 for international students\",\"in-state tuition of about $14,208 and out-of-state tuition around $46,503\"],\"Student Body\":[\"Tight knit residential community\",\"Highly international student body\",\"One of the most ethnically diverse universities in the U.S.\"]]}"
         }
     ]
 }
